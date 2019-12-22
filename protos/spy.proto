@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.pong";
+option java_outer_classname = "SpyProto";
+
+package pong;
+
+service Spy {
+  rpc SendStep (StepUpdate) returns (Reply) {}
+  rpc SendAccelerometer (AccelerometerUpdate) returns (Reply) {}
+  rpc SendUserAccelerometer (UserAccelerometerUpdate) returns (Reply) {}
+  rpc SendGyroscope (GyroscopeUpdate) returns (Reply) {}
+  rpc SendDeviceInfo (DeviceInfo) returns (Reply) {}
+  rpc SendBatteryLevel (BatteryLevel) returns (Reply) {}
+}
+
+message StepUpdate {
+  int32 value = 1;
+}
+
+message AccelerometerUpdate {
+  double x = 1;
+  double y = 2;
+  double z = 3;
+}
+
+message UserAccelerometerUpdate {
+  double x = 1;
+  double y = 2;
+  double z = 3;
+}
+
+message GyroscopeUpdate {
+  double x = 1;
+  double y = 2;
+  double z = 3;
+}
+
+message DeviceInfo {
+  string model = 1;
+}
+
+message BatteryLevel {
+  int32 value = 1;
+}
+
+message Reply {
+  string message = 1;
+}

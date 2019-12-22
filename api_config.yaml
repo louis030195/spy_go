@@ -1,0 +1,26 @@
+
+# The configuration schema is defined by service.proto file
+# https://github.com/googleapis/googleapis/blob/master/google/api/service.proto
+type: google.api.Service
+config_version: 3
+
+#
+# Name of the service configuration.
+#
+name: test.endpoints.louis030195-256110.cloud.goog
+
+#
+# API title to appear in the user interface (Google Cloud Console).
+#
+title: Spy gRPC API
+apis:
+- name: pong.Spy
+
+#
+# API usage restrictions.
+#
+usage:
+  rules:
+  # ListShelves methods can be called without an API Key.
+  - selector: pong.Spy
+    allow_unregistered_calls: true
